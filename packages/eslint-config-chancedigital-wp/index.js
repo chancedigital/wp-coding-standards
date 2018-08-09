@@ -100,6 +100,7 @@ const config = {
 };
 
 if ( es6 && react ) {
+
 	config['extends'] = [ 'eslint:recommended', 'react-app' ];
 	config['rules']['react/jsx-curly-spacing']   = [ 'error', 'always' ];
 	config['rules']['react/jsx-wrap-multilines'] = [ 'error' ];
