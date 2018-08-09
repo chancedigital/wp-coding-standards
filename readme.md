@@ -1,6 +1,6 @@
 # Chance Digital WordPress Coding Standards
 <a href="https://packagist.org/packages/chancedigital/wp-coding-standards"><img src="https://img.shields.io/packagist/v/chancedigital/wp-coding-standards.svg" /></a>
-<a href="https://www.npmjs.com/package/eslint-config-chancedigital-wp"><img src="https://img.shields.io/npm/v/eslint-config-chancedigital-wp.svg" /></a>
+<a href="https://www.npmjs.com/package/@chancedigital/eslint-config-wp"><img src="https://img.shields.io/npm/v/@chancedigital/eslint-config-wp.svg" /></a>
 <img src="https://travis-ci.org/chancedigital/wp-coding-standards.svg?branch=master" alt="Build Status" />
 
 This is a codified version of the Chance Digital style guide. We include phpcs and ESLint rules. It is a fork of the similar repository from [Human Made](https://github.com/chancedigital/wp-coding-standards).
@@ -111,7 +111,7 @@ You can also use a custom path and reference this in your ruleset:
 
 **Important Note:** This must come *after* the `vendor/chancedigital/wp-coding-standards` rule, and be a direct child of `<ruleset />`.
 
-If you're using the ESLint configuration without phpcs, you can simply use `chancedigital`, as the configuration is [published on npm](https://www.npmjs.com/package/eslint-config-chancedigital-wp). You can also install this globally (`npm install -g eslint-config-chancedigital-wp`) and then use directly on the command line via `eslint -c chancedigital .`
+If you're using the ESLint configuration without phpcs, you can simply use `chancedigital`, as the configuration is [published on npm](https://www.npmjs.com/package/@chancedigital/eslint-config-wp). You can also install this globally (`npm install -g @chancedigital/eslint-config-wp`) and then use directly on the command line via `eslint -c chancedigital .`
 
 
 ## Included Checks

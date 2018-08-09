@@ -7,7 +7,7 @@ install:
   - npm install
 
   # Install for ESLint tests
-  - cd packages/eslint-config-chancedigital-wp
+  - cd packages/chancedigital-eslint-config-wp
   - npm install
 
   # Reset
@@ -15,4 +15,4 @@ install:
 
 script:
   - vendor/bin/phpunit
-  - node packages/eslint-config-chancedigital-wp/fixtures/test-lint-config
+  - node packages/chancedigital-eslint-config-wp/fixtures/test-lint-config

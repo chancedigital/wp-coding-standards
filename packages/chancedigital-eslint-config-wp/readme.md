@@ -1,4 +1,4 @@
-# eslint-config-chancedigital-wp
+# @chancedigital/eslint-config-wp
 
 Chance Digital WordPress coding standards for JavaScript. This is a fork of the similar repository from [Human Made](https://github.com/chancedigital/wp-coding-standards).
 
@@ -11,7 +11,7 @@ This package is an ESLint shareable configuration, and requires `babel-eslint`, 
 To install this config and the peerDependencies:
 
 ```
-npm info "eslint-config-chancedigital-wp@latest" peerDependencies --json | command sed 's/[\{\},]//g ; s/: /@/g' | xargs npm install --save-dev "eslint-config-chancedigital-wp@latest"
+npm info "@chancedigital/eslint-config-wp@latest" peerDependencies --json | command sed 's/[\{\},]//g ; s/: /@/g' | xargs npm install --save-dev "@chancedigital/eslint-config-wp@latest"
 ```
 
 (Thanks to [Airbnb's package](https://www.npmjs.com/package/eslint-config-airbnb) for the command.)
@@ -37,7 +37,7 @@ Please note that the standards' tests and CLI tools are not set up to support th
 **We do not recommend installing these standards globally.** If you must, however, you need to ensure the peer dependencies are also installed globally. Run the same command as above, but with `-g` added:
 
 ```
-npm info "eslint-config-chancedigital-wp@latest" peerDependencies --json | command sed 's/[\{\},]//g ; s/: /@/g' | xargs npm install --save-dev "eslint-config-chancedigital-wp@latest"
+npm info "@chancedigital/eslint-config-wp@latest" peerDependencies --json | command sed 's/[\{\},]//g ; s/: /@/g' | xargs npm install --save-dev "@chancedigital/eslint-config-wp@latest"
 ```
 
 This allows you to use `eslint -c chancedigital MyFile.js` anywhere on your filesystem.
