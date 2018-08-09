@@ -1,0 +1,6 @@
+<?php
+
+namespace ChanceDigital\Coding\Standards\Tests;
+
+use \ChanceDigital\Other;
+use \WP_Post;

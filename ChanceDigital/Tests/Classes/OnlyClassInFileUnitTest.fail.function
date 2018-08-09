@@ -1,0 +1,13 @@
+<?php
+
+namespace ChanceDigital\Coding\Standards\Tests;
+
+function foo() {
+	echo 'foo';
+}
+
+class Bar {
+	public function test() {
+		echo 'bar';
+	}
+}

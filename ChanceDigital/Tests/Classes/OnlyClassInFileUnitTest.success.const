@@ -1,0 +1,11 @@
+<?php
+
+namespace ChanceDigital\Coding\Standards\Tests;
+
+const FOO = 'foo';
+
+class Bar {
+	public function test() {
+		echo 'bar';
+	}
+}
