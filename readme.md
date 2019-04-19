@@ -7,7 +7,7 @@ This is a codified version of the Chance Digital style guide. We include phpcs a
 
 ## Setup
 
-1. `composer require chancedigital/wp-coding-standards`
+1. `composer require --dev chancedigital/wp-coding-standards`
 2. Run the following command to run the standards checks:
 
 ```
@@ -64,29 +64,23 @@ You can then reference this file when running phpcs:
 vendor/bin/phpcs --standard=phpcs.ruleset.xml .
 ```
 
-
 #### Excluding/Disabling Checks
 
 You can also customise the rule to exclude elements if they aren't applicable to the project:
 
 ```xml
 <rule ref="vendor/chancedigital/wp-coding-standards">
-	<!-- Disable short array syntax -->
-	<exclude name="ChanceDigital.Debug.ForceShortArray" />
+	<exclude name="ChanceDigital.Files.ClassFileNameSniff" />
 </rule>
 ```
 
-Rules can also be disabled inline. [phpcs rules can be disabled](https://github.com/squizlabs/PHP_CodeSniffer/wiki/Advanced-Usage#ignoring-parts-of-a-file) with a `// @codingStandardsIgnoreLine` comment, and [ESLint rules can be disabled](http://eslint.org/docs/user-guide/configuring#disabling-rules-with-inline-comments) with a `/* eslint disable ... */` comment.
+Rules can also be disabled inline. [phpcs rules can be disabled](https://github.com/squizlabs/PHP_CodeSniffer/wiki/Advanced-Usage#ignoring-parts-of-a-file) with a `// @codingStandardsIgnoreLine` comment.
 
 To find out what these codes are, specify `-s` when running `phpcs`, and the code will be output as well. You can specify a full code, or a partial one to disable groups of errors.
 
 ## Included Checks
 
-The phpcs standard is based upon the `WordPress-VIP` standard from [WordPress Coding Standards](https://github.com/WordPress-Coding-Standards/WordPress-Coding-Standards), with [customisation and additions](ChanceDigital/ruleset.xml) to match our style guide.
-
-phpcs also includes ESLint checking based upon the `eslint:recommended` standard (checks from [this page](http://eslint.org/docs/rules/) marked with a check mark), with [customisation and additions](.eslintrc.yml) to match our style guide.
-
-**Note:** ESLint checks are mapped from ESLint codes to phpcs codes by prefixing with `ChanceDigital.Debug.ESLint`. e.g. the `no-unused-vars` ESLint code becomes `ChanceDigital.Debug.ESLint.no-unused-vars`. You need to use the phpcs code when excluding specific rules.
+The phpcs standard is based upon the `WordPress-Extra` standard from [WordPress Coding Standards](https://github.com/WordPress-Coding-Standards/WordPress-Coding-Standards), with [customisation and additions](ChanceDigital/ruleset.xml) to match our style guide.
 
 ## Testing
 
