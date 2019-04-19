@@ -1,25 +1,36 @@
 <?xml version="1.0"?>
 <ruleset name="ChanceDigital">
-	<description>Sniffs for the coding standards of the WP-API plugin</description>
+	<description>Chance Digital Coding Standards</description>
 
-	<!-- vendor/chancedigital/wp-coding-standards, -->
-	<config name="installed_paths" value="vendor/wp-coding-standards/wpcs,vendor/fig-r/psr2r-sniffer" />
+	<file>.</file>
 
+	<exclude-pattern>node_modules/*</exclude-pattern>
 	<exclude-pattern>vendor/*</exclude-pattern>
 	<exclude-pattern>dist/*</exclude-pattern>
-	<exclude-pattern>node_modules/*</exclude-pattern>
 	<exclude-pattern>*.js</exclude-pattern>
 	<exclude-pattern>*.css</exclude-pattern>
+	<exclude-pattern>*.scss</exclude-pattern>
 
 	<autoload>./bootstrap.php</autoload>
 
 	<!-- Include everything in the Extra standard, with exclusions -->
 	<rule ref="WordPress-Extra">
+		<!-- Allow extra spaces after commas in functions. -->
 		<exclude name="Generic.Functions.FunctionCallArgumentSpacing.TooMuchSpaceAfterComma" />
+
+		<!-- Allow with or without semicolons. -->
 		<exclude name="Squiz.PHP.EmbeddedPhp.NoSemicolon" />
-		<exclude name="WordPress.Arrays.MultipleStatementAlignment.DoubleArrowNotAligned" />
-		<exclude name="WordPress.PHP.YodaConditions" />
+
+		<!-- Require versions for enqueued assets. -->
 		<exclude name="WordPress.WP.EnqueuedResourceParameters.MissingVersion" />
+
+		<!-- Exclude other conflicting rules. -->
+		<exclude name="WordPress.Arrays.MultipleStatementAlignment.DoubleArrowNotAligned" />
+		<exclude name="WordPress.PHP.DevelopmentFunctions.error_log_trigger_error" />
+		<exclude name="Generic.Formatting.MultipleStatementAlignment.NotSameWarning" />
+
+		<!-- Meh, Yodas -->
+		<exclude name="WordPress.PHP.YodaConditions" />
 	</rule>
 
 	<!-- Allow the use of filesystem functions -->
@@ -36,6 +47,12 @@
 		</properties>
 	</rule>
 
+	<!-- Check for nique handle when registering plugins -->
+	<rule ref="WordPress.Security.PluginMenuSlug" />
+	<rule ref="WordPress.Security.PluginMenuSlug.Using__FILE__">
+		<type>error</type>
+	</rule>
+
 	<!-- Prefer alignment over line length -->
 	<rule ref="WordPress.Arrays.MultipleStatementAlignment">
 		<properties>
@@ -43,59 +60,50 @@
 		</properties>
 	</rule>
 
+	<!-- Restore the ability to have multiple arguments per line -->
+	<rule ref="PEAR.Functions.FunctionCallSignature">
+		<properties>
+			<property name="allowMultipleArguments" value="true"/>
+		</properties>
+	</rule>
+	<rule ref="PEAR.Functions.FunctionCallSignature.ContentAfterOpenBracket">
+		<severity phpcs-only="true">0</severity>
+	</rule>
+	<rule ref="PEAR.Functions.FunctionCallSignature.CloseBracketLine">
+		<severity phpcs-only="true">0</severity>
+	</rule>
+
 	<!--
-	ChanceDigital Rules
+	Chance Digital Rules
 	Starting from Human Made standards: http://engineering.hmn.md/style/php/
 	-->
 
-	<!-- File Layout: Classes in own file. -->
-		<!-- Handled in Classes/OnlyClassInFileSniff -->
-		<!-- Also handled in PSR1.Classes.ClassDeclaration below. -->
-
-	<!-- File Layout: Order: `namespace`, `use`, `const`, code -->
-		<!-- Handled in Layout/OrderSniff -->
-
-	<!-- File Naming: `name/space/` -->
-		<!-- Handled in Files/NamespaceDirectoryNameSniff -->
-
-	<!-- File Naming: `class-classname.php` -->
-		<!-- Handled in Files/ClassNameFileSniff -->
-
-	<!-- File Naming: `namespace.php` -->
-		<!-- Handled in Files/FunctionFileNameSniff -->
-
-	<!-- File Naming: `plugin.php` or `functions.php` -->
-
 	<!-- Namespacing: Required for classes -->
-		<rule ref="PSR1.Classes.ClassDeclaration" />
+	<rule ref="PSR1.Classes.ClassDeclaration" />
 
 	<!-- Namespacing: Required for functions -->
-		<!-- Handled in Functions/NamespacedFunctionsSniff -->
-		<rule ref="PSR2.Namespaces.NamespaceDeclaration" />
+	<!-- Handled in Functions/NamespacedFunctionsSniff -->
+	<rule ref="PSR2.Namespaces.NamespaceDeclaration" />
 
 	<!-- Namespacing: `use` statements -->
-		<rule ref="PSR2.Namespaces.UseDeclaration" />
-		<rule ref="PSR2R.Namespaces.UnusedUseStatement" />
-		<rule ref="PSR2R.Namespaces.UseInAlphabeticalOrder" />
+	<rule ref="PSR2.Namespaces.UseDeclaration">
+		<exclude name="PSR2.Namespaces.UseDeclaration.MultipleDeclarations" />
+	</rule>
+	<rule ref="PSR2R.Namespaces.UnusedUseStatement" />
+	<rule ref="PSR2R.Namespaces.UseInAlphabeticalOrder" />
 
 	<!-- Namespacing: No backslash with `use` -->
-		<!-- Handled in Namespaces/NoLeadingSlashOnUseSniff -->
+	<!-- Handled in Namespaces/NoLeadingSlashOnUseSniff -->
 
 	<!-- Ban inline assignment in control structures. -->
-		<rule ref="PSR2R.ControlStructures.NoInlineAssignment" />
+	<rule ref="PSR2R.ControlStructures.NoInlineAssignment" />
 
 	<!-- Anonymous Functions: Spaces after `function` and `use` -->
-		<!-- Handled in Squiz.Functions.MultiLineFunctionDeclaration -->
-
-	<!-- Array Creation: Short Syntax -->
-		<!-- Handled in Arrays/ForceShortArraysSniff -->
-
-	<!-- TEMPLATE RULES / TEMPLATES RULE -->
-	<!-- Namespacing: No namespace -->
+	<!-- Handled in Squiz.Functions.MultiLineFunctionDeclaration -->
 
 	<!-- Inline Statements: Single statement on same line -->
-		<rule ref="Generic.Formatting.DisallowMultipleStatements"/>
-	<!-- Inline Statements: No semicolons -->
+	<rule ref="Generic.Formatting.DisallowMultipleStatements"/>
 
+	<!-- Array Creation: Short Syntax -->
 	<rule ref="Generic.Arrays.DisallowLongArraySyntax"/>
 </ruleset>
