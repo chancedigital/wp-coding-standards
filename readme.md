@@ -80,40 +80,6 @@ Rules can also be disabled inline. [phpcs rules can be disabled](https://github.
 
 To find out what these codes are, specify `-s` when running `phpcs`, and the code will be output as well. You can specify a full code, or a partial one to disable groups of errors.
 
-
-### Custom ESLint Configuration
-
-This repo comes with an `eslintrc.yml` file matching the Chance Digital coding standards. While checks can be disabled using the `<exclude />` rules, you can't add additional checks this way. Instead, you can create your own ESLint config file.
-
-To enable checking ESLint via phpcs, you need to add the ESLint rule to your custom ruleset:
-
-```xml
-<rule ref="ChanceDigital.Debug.ESLint" />
-```
-
-ESLint configuration files (`.eslintrc.js`, `.eslintrc.yaml`, `.eslintrc.yml`, `.eslintrc.json`) will be **autodetected** by phpcs and used automatically if they exist. Inside your configuration file, you can extend the coding standards lint file by referencing it by a path:
-
-```yaml
----
-extends:
-- vendor/chancedigital/wp-coding-standards/.eslintrc.yml
-```
-
-You can also use a custom path and reference this in your ruleset:
-
-```xml
-<rule ref="ChanceDigital.Debug.ESLint">
-	<properties>
-		<property name="configFile" value="your/lint/config.yml"/>
-	</properties>
-</rule>
-```
-
-**Important Note:** This must come *after* the `vendor/chancedigital/wp-coding-standards` rule, and be a direct child of `<ruleset />`.
-
-If you're using the ESLint configuration without phpcs, you can simply use `chancedigital`, as the configuration is [published on npm](https://www.npmjs.com/package/@chancedigital/eslint-config-wp). You can also install this globally (`npm install -g @chancedigital/eslint-config-wp`) and then use directly on the command line via `eslint -c chancedigital .`
-
-
 ## Included Checks
 
 The phpcs standard is based upon the `WordPress-VIP` standard from [WordPress Coding Standards](https://github.com/WordPress-Coding-Standards/WordPress-Coding-Standards), with [customisation and additions](ChanceDigital/ruleset.xml) to match our style guide.
