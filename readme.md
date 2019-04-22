@@ -2,7 +2,7 @@
 <a href="https://packagist.org/packages/chancedigital/wp-coding-standards"><img src="https://img.shields.io/packagist/v/chancedigital/wp-coding-standards.svg" /></a>
 <img src="https://travis-ci.org/chancedigital/wp-coding-standards.svg?branch=master" alt="Build Status" />
 
-This is a codified version of the Chance Digital PHP CodeSniffer rules. It began as a fork of the the [Human Made](https://github.com/chancedigital/wp-coding-standards).
+This is a codified version of the Chance Digital PHP CodeSniffer rules. It began as a fork of the the [Human Made](https://github.com/chancedigital/wp-coding-standards) coding standards.
 
 ## Setup
 
