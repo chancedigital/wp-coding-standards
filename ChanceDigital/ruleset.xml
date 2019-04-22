@@ -4,8 +4,9 @@
 
 	<file>.</file>
 
-	<exclude-pattern>node_modules/*</exclude-pattern>
 	<exclude-pattern>vendor/*</exclude-pattern>
+	<exclude-pattern>node_modules/*</exclude-pattern>
+	<exclude-pattern>build/*</exclude-pattern>
 	<exclude-pattern>dist/*</exclude-pattern>
 	<exclude-pattern>*.js</exclude-pattern>
 	<exclude-pattern>*.css</exclude-pattern>
@@ -15,6 +16,7 @@
 
 	<!-- Include everything in the Extra standard, with exclusions -->
 	<rule ref="WordPress-Extra">
+
 		<!-- Allow extra spaces after commas in functions. -->
 		<exclude name="Generic.Functions.FunctionCallArgumentSpacing.TooMuchSpaceAfterComma" />
 
@@ -47,7 +49,7 @@
 		</properties>
 	</rule>
 
-	<!-- Check for nique handle when registering plugins -->
+	<!-- Check for unique handle when registering plugins -->
 	<rule ref="WordPress.Security.PluginMenuSlug" />
 	<rule ref="WordPress.Security.PluginMenuSlug.Using__FILE__">
 		<type>error</type>
@@ -82,7 +84,6 @@
 	<rule ref="PSR1.Classes.ClassDeclaration" />
 
 	<!-- Namespacing: Required for functions -->
-	<!-- Handled in Functions/NamespacedFunctionsSniff -->
 	<rule ref="PSR2.Namespaces.NamespaceDeclaration" />
 
 	<!-- Namespacing: `use` statements -->

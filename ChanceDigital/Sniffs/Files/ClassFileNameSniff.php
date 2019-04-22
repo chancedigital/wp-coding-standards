@@ -27,8 +27,8 @@ class ClassFileNameSniff implements Sniff {
 	 * @return int
 	 */
 	public function process( File $phpcsFile, $stackPtr ) {
-		$tokens = $phpcsFile->getTokens();
-		$namespace_ptr = $phpcsFile->findNext(T_NAMESPACE, 0);
+		$tokens        = $phpcsFile->getTokens();
+		$namespace_ptr = $phpcsFile->findNext( T_NAMESPACE, 0 );
 		if ( ! $namespace_ptr ) {
 			// Non-namespaced, skip check.
 			return;

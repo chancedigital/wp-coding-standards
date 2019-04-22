@@ -1,13 +1,13 @@
 {
 	"6": [
 		{
-			"source": "HM.Files.NamespaceDirectoryName.NoIncDirectory",
+			"source": "ChanceDigital.Files.NamespaceDirectoryName.NoIncDirectory",
 			"type": "error"
 		}
 	],
 	"11": [
 		{
-			"source": "HM.Files.FunctionFileName.WrongFile",
+			"source": "ChanceDigital.Files.FunctionFileName.WrongFile",
 			"type": "error"
 		}
 	]

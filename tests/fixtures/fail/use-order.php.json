@@ -1,7 +1,7 @@
 {
 	"1": [
 		{
-			"source": "HM.Layout.Order.WrongOrder",
+			"source": "ChanceDigital.Layout.Order.WrongOrder",
 			"type": "error"
 		}
 	]

@@ -25,10 +25,11 @@ class FunctionFileNameSniff implements Sniff {
 			return;
 		}
 
-		$filename = basename( $phpcsFile->getFileName() );
-		if ( $filename !== 'namespace.php' ) {
-			$error = 'Namespaced functions must be in namespace.php';
-			$phpcsFile->addError($error, $stackPtr, 'WrongFile');
+		$expected_filename = 'functions-' . str_replace( '_', '-', strtolower( $namespace ) ) . '.php';
+		$filename          = basename( $phpcsFile->getFileName() );
+		if ( $filename !== $expected_filename ) {
+			$error = "Functions in the `$namespace` namespace must be in $expected_filename";
+			$phpcsFile->addError( $error, $stackPtr, 'WrongFile' );
 		}
 	}
 }

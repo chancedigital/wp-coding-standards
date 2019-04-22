@@ -91,14 +91,14 @@ To run the tests locally, you'll need the source version of PHP CodeSniffer.
 If you haven't already installed your Composer dependencies:
 
 ```bash
-composer install --prefer-source --dev
+composer install --prefer-source
 ```
 
 If you already have, and need to convert the phpcs directory to a source version:
 
 ```bash
 rm -r vendor/squizlabs/php_codesniffer
-composer install --prefer-source --dev
+composer install --prefer-source
 composer dump-autoload
 ```
 

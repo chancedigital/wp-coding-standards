@@ -53,8 +53,7 @@ class FixtureTests extends TestCase {
 		$this->config            = new Config();
 		$this->config->cache     = false;
 		$this->config->standards = [ 'ChanceDigital' ];
-
-		$this->ruleset = new Ruleset( $this->config );
+		$this->ruleset           = new Ruleset( $this->config );
 	}
 
 	/**

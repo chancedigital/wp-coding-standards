@@ -6,6 +6,6 @@
 namespace ChanceDigital\Coding\Standards\Test;
 
 /**
- * This function should be in namespace.php instead.
+ * This function should be in functions-test.php instead.
  */
 function foo() {}
