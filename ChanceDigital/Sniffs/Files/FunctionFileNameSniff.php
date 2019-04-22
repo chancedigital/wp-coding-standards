@@ -19,11 +19,22 @@ class FunctionFileNameSniff implements Sniff {
 			return;
 		}
 
-		$namespace = $phpcsFile->findNext( T_NAMESPACE , 0);
+		$namespace = $phpcsFile->findNext( T_NAMESPACE , 0 );
 		if ( empty( $namespace ) ) {
-			// Non-namespaced function.
+			// Non-namespaced, skip check.
 			return;
 		}
+
+		$namespace = '';
+		$name_ptr  = $phpcsFile->findNext( T_STRING, 0 );
+		if ( ! $name_ptr ) {
+			// Non-namespaced, skip check.
+			return;
+		}
+		do {
+			$namespace .= $tokens[ $name_ptr ]['content'];
+			$name_ptr++;
+		} while ( in_array( $tokens[ $name_ptr ]['code'], [ T_STRING, T_NS_SEPARATOR ] ) );
 
 		$expected_filename = 'functions-' . str_replace( '_', '-', strtolower( $namespace ) ) . '.php';
 		$filename          = basename( $phpcsFile->getFileName() );
