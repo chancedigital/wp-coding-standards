@@ -8,6 +8,6 @@
 
 namespace ChanceDigital\Coding\Standards\Test;
 
-require __DIR__ . '/inc/namespace.php';
+require __DIR__ . '/inc/functions-test.php';
 
 bootstrap();
