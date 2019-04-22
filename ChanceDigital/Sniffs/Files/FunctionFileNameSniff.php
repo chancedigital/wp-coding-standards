@@ -36,7 +36,10 @@ class FunctionFileNameSniff implements Sniff {
 			$name_ptr++;
 		} while ( in_array( $tokens[ $name_ptr ]['code'], [ T_STRING, T_NS_SEPARATOR ] ) );
 
-		$expected_filename = 'functions-' . str_replace( '_', '-', strtolower( $namespace ) ) . '.php';
+		$namespace_parts = explode( '\\', $namespace );
+		$ns_part         = array_pop( $namespace_parts );
+
+		$expected_filename = 'functions-' . str_replace( '_', '-', strtolower( $ns_part ) ) . '.php';
 		$filename          = basename( $phpcsFile->getFileName() );
 		if ( $filename !== $expected_filename ) {
 			$error = "Functions in the `$namespace` namespace must be in $expected_filename";
