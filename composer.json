@@ -1,8 +1,8 @@
 {
 		"name": "chancedigital/wp-coding-standards",
 		"description": "Chance Digital coding standards",
-		"type": "project",
-		"license": "GPL-2.0-or-later",
+		"type": "phpcodesniffer-standard",
+		"license": "GPL-3.0-or-later",
 		"require": {
 				"php": ">=7.1",
 				"wp-coding-standards/wpcs": "^2.1.0",
@@ -14,6 +14,6 @@
 				"phpunit/phpunit": "^5.7"
 		},
 		"scripts": {
-				"test": "phpunit"
+        "test": "phpunit"
 		}
 }

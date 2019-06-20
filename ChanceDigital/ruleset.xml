@@ -4,15 +4,22 @@
 
 	<file>.</file>
 
-	<exclude-pattern>vendor/*</exclude-pattern>
-	<exclude-pattern>node_modules/*</exclude-pattern>
-	<exclude-pattern>build/*</exclude-pattern>
-	<exclude-pattern>dist/*</exclude-pattern>
-	<exclude-pattern>*.js</exclude-pattern>
-	<exclude-pattern>*.css</exclude-pattern>
-	<exclude-pattern>*.scss</exclude-pattern>
+	<exclude-pattern>*/phpunit.xml*</exclude-pattern>
+	<exclude-pattern>*/vendor/*</exclude-pattern>
+	<exclude-pattern>*/node_modules/*</exclude-pattern>
+	<exclude-pattern>*/build/*</exclude-pattern>
+	<exclude-pattern>*/tests/*</exclude-pattern>
+	<exclude-pattern>*/dist/*</exclude-pattern>
+	<exclude-pattern>*\.(css|scss|js)</exclude-pattern>
 
 	<autoload>./bootstrap.php</autoload>
+
+	<rule ref="Internal.NoCodeFound">
+		<severity>0</severity>
+	</rule>
+
+	<!-- For CI, don't fail on warnings -->
+	<config name="ignore_warnings_on_exit" value="1"/>
 
 	<!-- Include everything in the Extra standard, with exclusions -->
 	<rule ref="WordPress-Extra">
@@ -33,6 +40,13 @@
 
 		<!-- Meh, Yodas -->
 		<exclude name="WordPress.PHP.YodaConditions" />
+
+		<!-- Allow empty catch statements -->
+		<exclude name="Generic.CodeAnalysis.EmptyStatement.DetectedCatch"/>
+
+		<!-- Ignore comment punctuation -->
+		<exclude name="Squiz.Commenting.FunctionComment.ParamCommentFullStop"/>
+		<exclude name="Squiz.Commenting.FunctionComment.ThrowsNoFullStop"/>
 	</rule>
 
 	<!-- Allow the use of filesystem functions -->
@@ -107,4 +121,13 @@
 
 	<!-- Array Creation: Short Syntax -->
 	<rule ref="Generic.Arrays.DisallowLongArraySyntax"/>
+
+	<rule ref="WordPress.WP.I18n.MissingTranslatorsComment">
+		<type>warning</type>
+	</rule>
+	<rule ref="WordPress.WP.GlobalVariablesOverride.OverrideProhibited">
+		<type>warning</type>
+	</rule>
+
+	<config name="minimum_supported_wp_version" value="4.9" />
 </ruleset>
